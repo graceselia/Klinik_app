@@ -1,99 +1,67 @@
-// Mengimport package 'flutter/material.dart' yang berisi komponen UI Flutter.
-// Package ini digunakan untuk membangun antarmuka pengguna (UI) dalam aplikasi Flutter.
-
+// Mengimpor paket flutter/material.dart yang diperlukan untuk membangun UI dengan Flutter.
 import 'package:flutter/material.dart';
 
-// Mengimport model Poli dari file 'poli.dart'.
-// Model Poli digunakan untuk mendapatkan informasi tentang poli.
-
+// Mengimpor model poli.dart yang berisi definisi Poli.
 import '../model/poli.dart';
 
-// Mengimport PoliDetail dari file 'poli_detail.dart'.
-// Halaman PoliDetail digunakan untuk menampilkan detail poli.
-
+// Mengimpor halaman poli_detail.dart yang digunakan untuk menampilkan detail poli.
 import 'poli_detail.dart';
 
-// Kelas PoliPage adalah StatefulWidget yang digunakan untuk menampilkan daftar poli.
+// Mengimpor item poli_item.dart yang digunakan untuk menampilkan item poli dalam daftar.
+import 'poli_item.dart';
 
+// Mengimpor form poli_form.dart yang digunakan untuk menambahkan poli baru.
+import 'poli_form.dart';
+
+// Kelas PoliPage adalah StatefulWidget yang menampilkan halaman daftar poli.
 class PoliPage extends StatefulWidget {
   const PoliPage({Key? key}) : super(key: key);
-// Konstruktor PoliPage.
 
   @override
   State<PoliPage> createState() => _PoliPageState();
-// Metode createState() digunakan untuk membuat instance dari _PoliPageState,
-// yaitu state yang akan digunakan oleh PoliPage.
 }
 
-// Kelas _PoliPageState adalah state dari PoliPage.
-
+// Kelas _PoliPageState adalah State dari PoliPage.
 class _PoliPageState extends State<PoliPage> {
   @override
   Widget build(BuildContext context) {
-// Metode build() akan dijalankan ketika _PoliPageState dirender.
-
     return Scaffold(
-      // Scaffold adalah kelas yang menyediakan kerangka dasar untuk sebuah halaman dalam aplikasi Flutter.
-
-      appBar: AppBar(title: const Text("Data Poli")),
-      // Properti appBar digunakan untuk menampilkan AppBar di bagian atas halaman dengan judul "Data Poli".
-
-      body: ListView(
-        // Widget ListView digunakan untuk mengatur tata letak berbentuk daftar dari widget yang ada di dalamnya.
-
-        children: [
+      appBar: AppBar(
+        title: const Text("Data Poli"), // Menampilkan judul halaman.
+        actions: [
           GestureDetector(
-            // Widget GestureDetector digunakan untuk mendeteksi ketukan (tap) pada widget yang ada di dalamnya.
-
-            child: Card(
-              // Widget Card digunakan untuk membuat kotak berlapis yang berisi widget lain di dalamnya.
-
-              child: ListTile(
-                // Widget ListTile digunakan untuk menampilkan item dalam daftar dengan judul dan konten.
-
-                title: const Text("Poli Anak"),
-                // Properti title digunakan untuk menampilkan teks sebagai judul item.
-              ),
-            ),
-
+            child: const Icon(Icons.add), // Menampilkan ikon tambah.
             onTap: () {
-              // Properti onTap digunakan untuk menentukan aksi yang akan dilakukan ketika widget di dalam GestureDetector ditekan.
-
-              Poli poliAnak = new Poli(namaPoli: "Poli Anak");
-              // Membuat objek Poli dengan nama poliAnak dan nilai namaPoli "Poli Anak".
-
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => PoliDetail(poli: poliAnak),
-                ),
+                    builder: (context) =>
+                        PoliForm()), // Navigasi ke halaman PoliForm saat ikon tambah ditekan.
               );
-              // Menavigasi ke halaman PoliDetail dengan mengirimkan objek poliAnak sebagai argumen poli.
             },
           ),
-          Card(
-            child: ListTile(
-              title: const Text("Poli Kandungan"),
-              // Properti title digunakan untuk menampilkan teks sebagai judul item.
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: const Text("Poli Gigi"),
-              // Properti title digunakan untuk menampilkan teks sebagai judul item.
-            ),
-          ),
-          Card(
-            child: ListTile(
-              title: const Text("Poli THT"),
-              // Properti title digunakan untuk menampilkan teks sebagai judul item.
-            ),
-          ),
+        ],
+      ),
+      body: ListView(
+        children: [
+          PoliItem(
+              poli: Poli(
+                  namaPoli:
+                      "Poli Anak")), // Menampilkan item poli dengan nama "Poli Anak".
+          PoliItem(
+              poli: Poli(
+                  namaPoli:
+                      "Poli Kandungan")), // Menampilkan item poli dengan nama "Poli Kandungan".
+          PoliItem(
+              poli: Poli(
+                  namaPoli:
+                      "Poli Gigi")), // Menampilkan item poli dengan nama "Poli Gigi".
+          PoliItem(
+              poli: Poli(
+                  namaPoli:
+                      "Poli THT")), // Menampilkan item poli dengan nama "Poli THT".
         ],
       ),
     );
   }
 }
-
-// Kelas PoliPage ini digunakan untuk menampilkan daftar poli dalam bentuk ListView.
-// Setiap item poli dapat diklik untuk menampilkan halaman detail poli menggunakan PoliDetail.
