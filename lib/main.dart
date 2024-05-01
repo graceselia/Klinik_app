@@ -1,24 +1,20 @@
-// Impor paket material dari Flutter
 import 'package:flutter/material.dart';
+import 'ui/beranda.dart';
 
-// Impor kelas PoliPage dari direktori 'ui'
-import '/ui/poli_page.dart';
+void main() {
+  runApp(const MyApp());
+}
 
-// Titik masuk aplikasi
-void main() => runApp(MyApp());
-
-// Widget utama dari aplikasi
 class MyApp extends StatelessWidget {
+  const MyApp({Key? key});
+
   @override
   Widget build(BuildContext context) {
-    // Membuat dan mengembalikan widget MaterialApp
-    return MaterialApp(
-      // Mengatur judul aplikasi
-      title: 'Klinik APP',
-      // Menonaktifkan banner debug
-      debugShowCheckedModeBanner: false,
-      // Mengatur halaman utama aplikasi menjadi widget PoliPage
-      home: PoliPage(),
+    return const MaterialApp(
+      debugShowCheckedModeBanner:
+          false, // Menyembunyikan banner debug di perangkat
+      title: 'Klinik', // Menetapkan judul aplikasi menjadi "Klinik"
+      home: Beranda(), // Menetapkan Beranda sebagai halaman utama
     );
   }
 }

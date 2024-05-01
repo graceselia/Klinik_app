@@ -1,7 +1,7 @@
-// Mengimpor paket flutter/material.dart yang diperlukan untuk membangun UI dengan Flutter.
 import 'package:flutter/material.dart';
+import 'package:klinik_app/model/poli.dart';
+import 'package:klinik_app/ui/poli_detail.dart';
 
-// Kelas PoliForm adalah StatefulWidget yang digunakan untuk menampilkan formulir tambah poli.
 class PoliForm extends StatefulWidget {
   const PoliForm({Key? key}) : super(key: key);
 
@@ -9,38 +9,46 @@ class PoliForm extends StatefulWidget {
   _PoliFormState createState() => _PoliFormState();
 }
 
-// Kelas _PoliFormState adalah State dari PoliForm.
 class _PoliFormState extends State<PoliForm> {
-  final _formKey = GlobalKey<FormState>(); // Kunci form untuk validasi.
+  final _formKey = GlobalKey<FormState>();
+  final _namaPoliCtrl = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          title: const Text("Tambah Poli")), // Menampilkan judul halaman.
+      appBar: AppBar(title: const Text("Tambah Poli")),
       body: SingleChildScrollView(
         child: Form(
-          key: _formKey, // Menghubungkan kunci form dengan form widget.
+          key: _formKey,
           child: Column(
             children: [
-              TextFormField(
-                decoration: const InputDecoration(
-                    labelText:
-                        "Nama Poli"), // Menampilkan label dan input teks untuk nama poli.
-              ),
-              SizedBox(
-                  height:
-                      20), // Menambahkan jarak vertikal antara TextFormField dan ElevatedButton.
-              ElevatedButton(
-                onPressed:
-                    () {}, // Aksi yang akan dilakukan saat tombol "Simpan" ditekan.
-                child: const Text(
-                    "Simpan"), // Menampilkan teks "Simpan" pada tombol.
-              ),
+              _fieldNamaPoli(),
+              SizedBox(height: 20),
+              _tombolSimpan(),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget _fieldNamaPoli() {
+    return TextField(
+      decoration: const InputDecoration(labelText: "Nama Poli"),
+      controller: _namaPoliCtrl,
+    );
+  }
+
+  Widget _tombolSimpan() {
+    return ElevatedButton(
+      onPressed: () {
+        Poli poli = Poli(namaPoli: _namaPoliCtrl.text);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => PoliDetail(poli: poli)),
+        );
+      },
+      child: const Text("Simpan"),
     );
   }
 }
