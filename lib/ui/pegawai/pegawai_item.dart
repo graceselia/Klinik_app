@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/pegawai.dart';
+import '/model/pegawai.dart';
 import 'pegawai_detail.dart';
 
 class PegawaiItem extends StatelessWidget {
@@ -12,7 +12,7 @@ class PegawaiItem extends StatelessWidget {
       child: Card(
         child: ListTile(
           title: Text(
-              "${pegawai.nama}"), // Menampilkan teks nama pegawai pada ListTile
+              "pegawai.nama"), // Menampilkan teks nama pegawai pada ListTile
         ),
       ),
       onTap: () {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../model/pegawai.dart';
+import '/model/pegawai.dart';
 
 class PegawaiDetail extends StatefulWidget {
   final Pegawai pegawai;
@@ -18,7 +18,7 @@ class _PegawaiDetailState extends State<PegawaiDetail> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-            title: Text(
+            title: const Text(
                 "Detail Pegawai RS")), // Menampilkan judul "Detail Pegawai RS" pada AppBar
         body: Column(
           // Menggunakan Column sebagai tata letak utama
@@ -30,9 +30,9 @@ class _PegawaiDetailState extends State<PegawaiDetail> {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Column(
+                const Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
                           textAlign: TextAlign.left,
                           'Nama'), // Menampilkan label "Nama"
@@ -49,7 +49,7 @@ class _PegawaiDetailState extends State<PegawaiDetail> {
                           textAlign: TextAlign.left,
                           'Nomor Telepon') // Menampilkan label "Nomor Telepon"
                     ]),
-                Column(children: const [
+                const Column(children: [
                   Text(' : '), // Menampilkan tanda ":" sebagai pemisah
                   Text(' : '), // Menampilkan tanda ":" sebagai pemisah
                   Text(' : '), // Menampilkan tanda ":" sebagai pemisah
@@ -59,16 +59,14 @@ class _PegawaiDetailState extends State<PegawaiDetail> {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                        "${widget.pegawai.nama}"), // Menampilkan nilai nama pegawai
-                    Text(
-                        "${widget.pegawai.nip}"), // Menampilkan nilai NIP pegawai
-                    Text(
-                        "${widget.pegawai.email}"), // Menampilkan nilai email pegawai
-                    Text(
-                        "${widget.pegawai.tgllahir}"), // Menampilkan nilai tanggal lahir pegawai
-                    Text(
-                        "${widget.pegawai.nmrtlp}") // Menampilkan nilai nomor telepon pegawai
+                    Text(widget.pegawai.nama), // Menampilkan nilai nama pegawai
+                    Text(widget.pegawai.nip), // Menampilkan nilai NIP pegawai
+                    Text(widget
+                        .pegawai.email), // Menampilkan nilai email pegawai
+                    Text(widget.pegawai
+                        .tgllahir), // Menampilkan nilai tanggal lahir pegawai
+                    Text(widget.pegawai
+                        .nmrtlp) // Menampilkan nilai nomor telepon pegawai
                   ],
                 )
               ],

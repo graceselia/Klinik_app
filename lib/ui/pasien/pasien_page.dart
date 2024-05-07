@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/data.dart';
-import '../model/pasien.dart';
+import 'package:klinik_app/model/pasien.dart';
+import '/model/data.dart';
 import 'pasien_item.dart';
 import 'pasien_form.dart';
 
@@ -26,7 +26,7 @@ class _PasienPageState extends State<PasienPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          PasienForm())); // Menggunakan Navigator untuk berpindah ke halaman PasienForm saat ikon di-tap
+                          const PasienForm())); // Menggunakan Navigator untuk berpindah ke halaman PasienForm saat ikon di-tap
             },
           )
         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../model/data.dart';
-import '../model/pegawai.dart';
+import '/model/data.dart';
+import '/model/pegawai.dart';
 import 'pegawai_item.dart';
 import 'pegawai_form.dart';
 
@@ -26,7 +26,7 @@ class _PegawaiPageState extends State<PegawaiPage> {
                   context,
                   MaterialPageRoute(
                       builder: (context) =>
-                          PegawaiForm())); // Menggunakan Navigator untuk berpindah ke halaman PegawaiForm saat ikon di-tap
+                          const PegawaiForm())); // Menggunakan Navigator untuk berpindah ke halaman PegawaiForm saat ikon di-tap
             },
           )
         ],

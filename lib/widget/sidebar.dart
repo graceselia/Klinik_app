@@ -4,7 +4,7 @@ import '../ui/login.dart';
 import '../ui/poli_page.dart';
 
 class Sidebar extends StatelessWidget {
-  const Sidebar({Key? key}) : super(key: key);
+  const Sidebar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,56 +12,58 @@ class Sidebar extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          UserAccountsDrawerHeader(
+          const UserAccountsDrawerHeader(
             accountName:
                 Text("Admin"), // Menampilkan teks "Admin" sebagai nama akun
             accountEmail: Text(
                 "admin@admin.com"), // Menampilkan teks "admin@admin.com" sebagai email akun
           ),
           ListTile(
-            leading: Icon(Icons.home), // Menampilkan ikon rumah
-            title: Text("Beranda"), // Menampilkan teks "Beranda"
+            leading: const Icon(Icons.home), // Menampilkan ikon rumah
+            title: const Text("Beranda"), // Menampilkan teks "Beranda"
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        Beranda()), // Navigasi ke halaman Beranda
+                        const Beranda()), // Navigasi ke halaman Beranda
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.accessible), // Menampilkan ikon aksesibilitas
-            title: Text("Poli"), // Menampilkan teks "Poli"
+            leading:
+                const Icon(Icons.accessible), // Menampilkan ikon aksesibilitas
+            title: const Text("Poli"), // Menampilkan teks "Poli"
             onTap: () {
               Navigator.push(
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        PoliPage()), // Navigasi ke halaman PoliPage
+                        const PoliPage()), // Navigasi ke halaman PoliPage
               );
             },
           ),
           ListTile(
-            leading: Icon(Icons.people), // Menampilkan ikon orang
-            title: Text("Pegawai"), // Menampilkan teks "Pegawai"
+            leading: const Icon(Icons.people), // Menampilkan ikon orang
+            title: const Text("Pegawai"), // Menampilkan teks "Pegawai"
+            onTap: () {},
+          ),
+          ListTile(
+            leading: const Icon(
+                Icons.account_box_sharp), // Menampilkan ikon kotak akun
+            title: const Text("Pasien"), // Menampilkan teks "Pasien"
             onTap: () {},
           ),
           ListTile(
             leading:
-                Icon(Icons.account_box_sharp), // Menampilkan ikon kotak akun
-            title: Text("Pasien"), // Menampilkan teks "Pasien"
-            onTap: () {},
-          ),
-          ListTile(
-            leading: Icon(Icons.logout_rounded), // Menampilkan ikon logout
-            title: Text("Keluar"), // Menampilkan teks "Keluar"
+                const Icon(Icons.logout_rounded), // Menampilkan ikon logout
+            title: const Text("Keluar"), // Menampilkan teks "Keluar"
             onTap: () {
               Navigator.pushAndRemoveUntil(
                 context,
                 MaterialPageRoute(
                     builder: (context) =>
-                        Login()), // Navigasi ke halaman Login dan hapus semua rute sebelumnya
+                        const Login()), // Navigasi ke halaman Login dan hapus semua rute sebelumnya
                 (Route<dynamic> route) => false,
               );
             },
