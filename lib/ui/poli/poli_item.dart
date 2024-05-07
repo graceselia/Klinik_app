@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 
 // Mengimpor model poli.dart yang berisi definisi Poli.
-import '../model/poli.dart';
+import '/model/poli.dart';
 
 // Mengimpor halaman poli_detail.dart yang digunakan untuk menampilkan detail poli.
 import 'poli_detail.dart';
