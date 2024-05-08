@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:klinik_app/ui/pasien/pasien_page.dart';
+import 'package:klinik_app/ui/pegawai/pegawai_page.dart';
 import '../ui/beranda.dart';
 import '../ui/login.dart';
-import '../ui/poli_page.dart';
+import '../ui/poli/poli_page.dart';
 
 class Sidebar extends StatelessWidget {
   const Sidebar({super.key});
@@ -46,13 +48,27 @@ class Sidebar extends StatelessWidget {
           ListTile(
             leading: const Icon(Icons.people), // Menampilkan ikon orang
             title: const Text("Pegawai"), // Menampilkan teks "Pegawai"
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const PegawaiPage()), // Navigasi ke halaman PoliPage
+              );
+            },
           ),
           ListTile(
             leading: const Icon(
                 Icons.account_box_sharp), // Menampilkan ikon kotak akun
             title: const Text("Pasien"), // Menampilkan teks "Pasien"
-            onTap: () {},
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) =>
+                        const PasienPage()), // Navigasi ke halaman PoliPage
+              );
+            },
           ),
           ListTile(
             leading:

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import '/model/poli.dart';
 
 // Mengimpor halaman poli_detail.dart yang digunakan untuk menampilkan detail poli.
-import 'poli_detail.dart';
+import 'package:klinik_app/ui/poli/poli_detail.dart';
 
 // Kelas PoliItem adalah StatelessWidget yang digunakan untuk menampilkan item poli dalam daftar.
 class PoliItem extends StatelessWidget {

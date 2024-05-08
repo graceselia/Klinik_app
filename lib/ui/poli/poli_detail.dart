@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'poli_page.dart';
-import 'poli_update_form.dart';
+import '/ui/poli/poli_page.dart';
+import '/ui/poli/poli_update_form.dart';
 import '/model/poli.dart';
 
 class PoliDetail extends StatefulWidget {

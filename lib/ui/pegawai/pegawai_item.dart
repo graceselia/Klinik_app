@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '/model/pegawai.dart';
-import 'pegawai_detail.dart';
+import '/ui/pegawai/pegawai_detail.dart';
 
 class PegawaiItem extends StatelessWidget {
   final Pegawai pegawai;
@@ -11,8 +11,8 @@ class PegawaiItem extends StatelessWidget {
     return GestureDetector(
       child: Card(
         child: ListTile(
-          title: Text(
-              "pegawai.nama"), // Menampilkan teks nama pegawai pada ListTile
+          title:
+              Text(pegawai.nama), // Menampilkan teks nama pegawai pada ListTile
         ),
       ),
       onTap: () {
